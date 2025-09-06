@@ -1,0 +1,263 @@
+/* --- General Reset --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #f5f0e6;
+    display: flex;
+    justify-content: center;
+    padding: 20px 10px;
+}
+
+/* --- Container --- */
+.container {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 1300px;
+}
+
+/* --- Headings --- */
+h1 { text-align: center; color: #3a5a40; margin-bottom: 25px; }
+h2 { color: #556b2f; margin-bottom: 10px; }
+
+/* --- Main Layout --- */
+.main-layout { 
+    display: flex; 
+    gap: 20px; 
+    flex-wrap: wrap; 
+    align-items: flex-start; 
+}
+
+.left-section, .right-section { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+}
+
+/* --- Search Bar --- */
+.search-section input {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-bottom: 15px;
+    outline: none;
+}
+
+.search-section input:focus {
+    border-color: #3a5a40;
+    box-shadow: 0 0 5px rgba(58,90,64,0.3);
+}
+
+/* --- Input Section --- */
+.input-section { display: flex; gap: 10px; margin-bottom: 10px; }
+.input-section input {
+    flex: 1; padding: 10px 15px;
+    border-radius: 8px; border: 1px solid #ccc;
+    outline: none; font-size: 16px;
+}
+.input-section input:focus {
+    border-color: #3a5a40; box-shadow: 0 0 5px rgba(58,90,64,0.3);
+}
+.input-section button {
+    padding: 10px 20px; background: #6b8e23; color: white;
+    border: none; border-radius: 8px; cursor: pointer; font-weight: bold;
+}
+.input-section button:hover { background: #556b2f; }
+
+/* --- Task List --- */
+#taskList {
+    list-style: none; padding: 10px; overflow-y: auto;
+    flex: 2; border-radius: 8px; background: #f5f5f5; border: 1px solid #ddd;
+    min-height: 250px; max-height: 400px;
+}
+#taskList li {
+    background: #fffbe6; margin-bottom: 10px; padding: 12px 15px;
+    border-radius: 8px; display: flex; justify-content: space-between; align-items: center;
+}
+#taskList li.completed { text-decoration: line-through; color: #999; background: #e0e0e0; }
+#taskList li div button {
+    margin-left: 5px; padding: 6px 10px; border: none; border-radius: 6px; cursor: pointer;
+    font-size: 14px;
+}
+#taskList li div button:first-child { background: #3a5a40; color: white; }
+#taskList li div button:first-child:hover { background: #556b2f; }
+#taskList li div button:last-child { background: #a0522d; color: white; }
+#taskList li div button:last-child:hover { background: #8b3e2f; }
+
+/* --- Schedule Section --- */
+.schedule-section { display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.schedule-controls { display: flex; gap: 10px; }
+.schedule-controls input { flex: 1; padding: 6px 10px; border-radius: 6px; border: 1px solid #ccc; }
+.schedule-controls button {
+    padding: 6px 10px; border-radius: 6px; border: none; background: #6b8e23;
+    color: white; cursor: pointer;
+}
+.schedule-controls button:hover { background: #556b2f; }
+#scheduleList {
+    list-style: none; padding: 10px; overflow-y: auto; border-radius: 8px;
+    background: #f5f5f5; border: 1px solid #ddd; min-height: 250px; max-height: 400px;
+}
+#scheduleList li { background: #e0f0d9; margin-bottom: 10px; padding: 10px 12px;
+    border-left: 5px solid #3a5a40; border-radius: 5px;
+}
+#scheduleList li.completed { text-decoration: line-through; color: #999; background: #d0d0d0; }
+
+/* --- Chat Section --- */
+/* --- Chat Section Redesigned --- */
+.chat-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 600px;
+    border-radius: 15px;
+    padding: 20px;
+    background: #f7f5ef;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Chat log container */
+#chatBox {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    border-radius: 15px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Chat messages as bubbles */
+.chat-user, .chat-bot {
+    display: inline-block;
+    padding: 12px 18px;
+    max-width: 75%;
+    border-radius: 20px;
+    word-wrap: break-word;
+    position: relative;
+    line-height: 1.4;
+    font-size: 15px;
+}
+
+/* User message bubble (right side) */
+.chat-user {
+    background: #d9f0d9;
+    color: #2f4f2f;
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Bot message bubble (left side) */
+.chat-bot {
+    background: #f0f0e0;
+    color: #556b2f;
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Chat input group redesigned */
+.chat-input-group {
+    display: flex;
+    gap: 10px;
+    padding-top: 5px;
+}
+
+.chat-input-group input {
+    flex: 1;
+    padding: 12px 18px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.chat-input-group input:focus {
+    border-color: #3a5a40;
+    box-shadow: 0 0 8px rgba(58,90,64,0.3);
+}
+
+.chat-input-group button {
+    padding: 12px 20px;
+    border-radius: 30px;
+    border: none;
+    background: #6b8e23;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.chat-input-group button:hover {
+    background: #556b2f;
+}
+
+/* Instructions styling (inside chat) */
+.chat-instructions {
+    background: #eaf5d7;
+    border: 1px solid #c5e1a5;
+    border-radius: 12px;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #3a5a40;
+}
+.chat-instructions ul { padding-left: 20px; }
+.chat-instructions li { margin-bottom: 5px; }
+.chat-instructions code { background: #f0f8e8; padding: 2px 5px; border-radius: 5px; }
+
+/* Scroll behavior for chat */
+#chatBox::-webkit-scrollbar {
+    width: 8px;
+}
+#chatBox::-webkit-scrollbar-thumb {
+    background: rgba(58,90,64,0.3);
+    border-radius: 4px;
+}
+
+/* Animate task completion */
+#taskList li span {
+    transition: all 0.3s ease;
+}
+
+/* Strike-through for completed tasks */
+#taskList li span.completed {
+    text-decoration: line-through;
+    color: #999;
+    opacity: 0.7;
+}
+
+/* Smooth button transition */
+#taskList li button {
+    transition: all 0.3s ease;
+}
+
+/* Disabled complete button style */
+#taskList li button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+    .main-layout { flex-direction: column; }
+    .left-section, .right-section { width: 100%; }
+    #taskList, #scheduleList { max-height: 250px; }
+    .chat-section { height: auto; min-height: 400px; }
+}

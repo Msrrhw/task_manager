@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI To-Do List</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Task Manager</h1>
+
+    <div class="main-layout">
+        <!-- Left Side: Task Section -->
+        <div class="left-section">
+            <!-- Task Section -->
+            <div class="task-section">
+                <div class="input-section">
+                    <input type="text" id="taskInput" placeholder="Enter a new task">
+                    <input type="date" id="taskDate">
+                    <button id="addTaskBtn">Add Task</button>
+                </div>
+                 <!-- Search bar -->
+                <div class="search-section">
+                <input type="text" id="searchInput" placeholder="🔍 Search tasks..." />
+                <button id="refreshBtn">🔄 Refresh</button>
+                </div>
+                <ul id="taskList" class="task-list"></ul>
+            </div>
+
+            <!-- Upcoming Schedule -->
+            <div class="schedule-section">
+                <h2>Upcoming Schedule 📅</h2>
+                <div class="schedule-controls">
+                    <input type="date" id="filterDate">
+                    <button onclick="viewSchedule()">View Schedule</button>
+                    <button onclick="viewUpcoming()">View Upcoming</button>
+                </div>
+                <ul id="scheduleList">
+                    <li style="text-align:center; font-style:italic;">Select a date or view upcoming tasks</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Side: Chat Section -->
+        <div class="right-section">
+            <div class="chat-section">
+                <h2>Chat with To-Do-List Bot 🤖</h2>
+                <div id="chatBox"></div>
+                <div class="chat-input-group">
+                    <input type="text" id="chatInput" placeholder="Type a command..." />
+                    <button id="sendChatBtn">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
